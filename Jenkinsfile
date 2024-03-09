@@ -10,7 +10,6 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'test error'
                 sh 'g++ main.cpp -o output'
                 build 'PES1UG21CS708-1'
             }
@@ -19,6 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh './output'
+                sh 'test_error'
                  script {
                     def output = sh(script: './output', returnStdout: true).trim()
                     echo 'Output of main.cpp: ${output}'
