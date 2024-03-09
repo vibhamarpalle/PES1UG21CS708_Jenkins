@@ -10,7 +10,8 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh error test 'g++ main.cpp -o output'
+                sh 'test error'
+                sh 'g++ main.cpp -o output'
                 build 'PES1UG21CS708-1'
             }
         }
